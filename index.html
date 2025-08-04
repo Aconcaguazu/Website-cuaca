@@ -5,23 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplikasi Cuaca</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="weather-app">
         <h1>Aplikasi Cuaca</h1>
-        <div class="input-group">
+        
+        <div class="search-container">
             <input type="text" id="city" placeholder="Masukkan nama kota" />
-            <button id="getWeather">Cari</button>
+            <button id="getWeather">
+                <i class="fas fa-search"></i> Cari
+            </button>
+        </div>
+
+        <div id="weather" class="weather-info hidden">
+            <div class="weather-header">
+                <h2 id="location"></h2>
+                <img id="icon" alt="Ikon Cuaca" />
+            </div>
+            <div class="weather-details">
+                <p id="temperature"></p>
+                <p id="description"></p>
+            </div>
         </div>
     </div>
 
-    <div id="weather" class="hidden">
-        <h2 id="location"></h2>
-        <p id="temperature"></p>
-        <p id="description"></p>
-        <img id="icon" alt="Ikon Cuaca" />
-    </div>
-
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
