@@ -1,81 +1,129 @@
-/* Reset dasar */
-body {
-    font-family: Arial, sans-serif;
+/* Import Google Font 'Poppins' */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* --- Reset Dasar dan Body --- */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #89f7fe, #66afff);
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
     color: #333;
 }
 
-.container {
-    text-align: center;
+/* --- Container Utama Aplikasi --- */
+.weather-app {
     background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0.4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
     width: 100%;
+    text-align: center;
 }
 
 h1 {
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #4a4a4a;
+    font-weight: 600;
+}
+
+/* --- Bagian Input Pencarian --- */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px; /* Memberi jarak antara input dan tombol */
+}
+
+#city {
+    flex-grow: 1;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#city:focus {
+    border-color: #6a89cc;
+}
+
+#getWeather {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    background: #6a89cc;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#getWeather:hover {
+    background: #5c79b5;
+    transform: translateY(-2px);
+}
+
+/* --- Bagian Tampilan Cuaca --- */
+.weather-info {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.weather-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#location {
     font-size: 24px;
+    font-weight: 500;
+    color: #4a4a4a;
+}
+
+#icon {
+    width: 80px;
+    height: 80px;
+}
+
+.weather-details {
+    text-align: center;
+}
+
+#temperature {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 5px;
     color: #333;
 }
 
-.input-group {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+#description {
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #666;
 }
 
-.input-group input {
-    padding: 10px;
-    font-size: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    width: 70%;
-}
-
-.input-group button {
-    padding: 10px;
-    font-size: 10px;
-    border: none;
-    background: #66a6ff;
-    color: white;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-}
-
-.input-group button:hover {
-    background: #55a9ff;
-}
-
-#weather {
-    margin-top: 20px;
-}
-
+/* --- Utilitas --- */
 .hidden {
     display: none;
-}
-
-#weather h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-#weather p {
-    font-size: 10px;
-    margin: 5px 0;
-}
-
-#weather img {
-    margin-top: 10px;
-    width: 50px;
-    height: 50px;
 }
