@@ -6,6 +6,7 @@ const temperatureDisplay = document.getElementById("temperature");
 const descriptionDisplay = document.getElementById("description");
 const iconDisplay = document.getElementById("icon");
 
+// Pastikan Anda menggunakan API Key yang valid di sini
 const API_KEY = "b062edaccf414219a4ea407f22700a93";
 
 async function getWeather(city) {
@@ -13,16 +14,19 @@ async function getWeather(city) {
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
         );
-        if (!response.ok) throw new Error("Kota tidak ditemukan!");
+        if (!response.ok) {
+            throw new Error("Kota tidak ditemukan! Silakan coba lagi.");
+        }
 
         const data = await response.json();
         locationDisplay.textContent = `${data.name}, ${data.sys.country}`;
-        temperatureDisplay.textContent = `Suhu: ${data.main.temp}°C`;
-        descriptionDisplay.textContent = `Kondisi: ${data.weather[0].description}`;
+        temperatureDisplay.textContent = `${Math.round(data.main.temp)}°C`;
+        descriptionDisplay.textContent = `${data.weather[0].description}`;
         iconDisplay.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
         weatherDisplay.classList.remove("hidden");
     } catch (error) {
         alert(error.message);
+        weatherDisplay.classList.add("hidden");
     }
 }
 
